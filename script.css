@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color:wheat; 
+    background-image: url('https://t3.ftcdn.net/jpg/02/96/69/22/360_F_296692203_k4lOpOt8mAcYpKzicNmJTpnsE9ZdwyHX.jpg'); 
+    background-size: cover;
+    background-position: center; 
+}
+h1 {
+    text-align: center;
+    color: wheat;
+}
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.image-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px wheat;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px wheat;
+}
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+.image-item:hover img {
+    filter: brightness(70%);
+}
+.image-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: wheat;
+    color: wheat;
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+.image-item:hover .caption {
+    transform: translateY(0);
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color:wheat
+    (0, 0, 0, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.lightbox.active {
+    opacity: 1;
+}
+.lightbox-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 0 20pX wheat;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+.lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: wheat;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    z-index: 1010;
+}
+.close:hover,
+.close:focus {
+    color: wheat;
+    text-decoration: none;
+}
